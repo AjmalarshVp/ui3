@@ -1,0 +1,346 @@
+// import 'package:flutter/material.dart';
+
+// class CustomCards extends StatelessWidget {
+//   final Color color;
+//   final String text;
+//   final String amount;
+//   CustomCards(
+//       {Key? key, required this.color, required this.text, required this.amount})
+//       : super(key: key);
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container(
+//       height: 110,
+//       width: 190,
+//       child: Padding(
+//         padding: const EdgeInsets.all(16),
+//         child: Column(
+//           crossAxisAlignment: CrossAxisAlignment.start,
+//           children: [
+            
+//             Text(
+            
+//               text,
+//               style: TextStyle(color: Colors.white, fontSize: 16),
+//             ),
+//             SizedBox(
+//               height: 15,
+//             ),
+//             (
+//               amount,
+//               style: TextStyle(
+//                 fontSize: 30,
+//                 color: Colors.white,
+//               ),
+//             )
+            
+//           ],
+//         ),
+//       ),
+//       decoration: BoxDecoration(
+//         borderRadius: BorderRadius.circular(10),
+//         color: color,
+//       ),
+//     );
+//   }
+// }
+
+// class ListTileCusot extends StatelessWidget {
+//   String text;
+//   FontWeight? weight;
+//   String text2;
+//   IconData? icon;
+//   double? size;
+//   double? font;
+//   ListTileCusot(
+//       {Key? key,
+//       this.icon,
+//       this.font,
+//       this.size,
+//       required this.text,
+//       this.weight,
+//       required this.text2})
+//       : super(key: key);
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return ListTile(
+//       tileColor: Colors.white,
+//       dense: true,
+//       contentPadding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+//       title: Text(
+//         text,
+//         style: TextStyle(
+//             fontSize: font ?? 16, letterSpacing: .2, fontWeight: weight),
+//       ),
+//       trailing: Row(
+//         mainAxisSize: MainAxisSize.min,
+//         mainAxisAlignment: MainAxisAlignment.start,
+//         children: [
+//           Text(
+//             text2,
+//             style: TextStyle(color: Colors.grey[600]),
+//           ),
+//           SizedBox(
+//             width: 5,
+//           ),
+//           Icon(
+//             icon,
+//             size: size ?? 16,
+//             color: Colors.grey[700],
+//           )
+//         ],
+//       ),
+//     );
+//   }
+// }
+
+// class elevatedbutton extends StatelessWidget {
+//   void onpressed() {}
+//   final Widget text;
+//   MaterialStateProperty<Color>? color;
+//   elevatedbutton({Key? key, required this.text, this.color}) : super(key: key);
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return ElevatedButton(
+//         onPressed: onpressed,
+//         child: text,
+//         style: ButtonStyle(
+//             backgroundColor: color,
+//             shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+//                 RoundedRectangleBorder(
+//               borderRadius: BorderRadius.circular(20),
+//             ))));
+//   }
+// }
+
+// class DisplayTile extends StatelessWidget {
+//   String orderId;
+//   String timeNdate;
+//   String amount;
+//   String imageLink;
+//   DisplayTile(
+//       {Key? key,
+//       required this.imageLink,
+//       required this.orderId,
+//       required this.amount,
+//       required this.timeNdate})
+//       : super(key: key);
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return SizedBox(
+//       width: MediaQuery.of(context).size.width,
+//       height: 85,
+//       child: DecoratedBox(
+//         decoration: BoxDecoration(
+//             border: Border(bottom: BorderSide(width: .6, color: Colors.grey))),
+//         child: Column(
+//           crossAxisAlignment: CrossAxisAlignment.start,
+//           children: [
+//             Row(
+//               crossAxisAlignment: CrossAxisAlignment.start,
+//               children: [
+//                 Padding(
+//                   padding: const EdgeInsets.only(left: 14, top: 5),
+//                   child: Card(
+//                     child: ClipRRect(
+//                       borderRadius: BorderRadius.circular(5),
+//                       child: Image.asset(
+//                         '$imageLink',
+//                         width: 50,
+//                         height: 50,
+//                         fit: BoxFit.fill,
+//                       ),
+//                     ),
+//                   ),
+//                 ),
+//                 SizedBox(
+//                   width: 10,
+//                 ),
+//                 Column(
+//                   crossAxisAlignment: CrossAxisAlignment.start,
+//                   children: [
+//                     SizedBox(
+//                       height: 14,
+//                     ),
+//                     Text(
+//                       "Order #$orderId",
+//                       style:
+//                           TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+//                     ),
+//                     SizedBox(
+//                       height: 4,
+//                     ),
+//                     Text(
+//                       timeNdate,
+//                       style: TextStyle(color: Colors.grey[600]),
+//                     )
+//                   ],
+//                 ),
+//                 SizedBox(
+//                   width: 55,
+//                 ),
+//                 Column(
+//                   crossAxisAlignment: CrossAxisAlignment.end,
+//                   children: [
+//                     SizedBox(
+//                       height: 12,
+//                     ),
+//                     Text(
+//                       "₹$amount",
+//                       style: TextStyle(
+//                           color: Colors.blue,
+//                           fontWeight: FontWeight.w600,
+//                           fontSize: 16),
+//                     ),
+//                     SizedBox(
+//                       height: 3,
+//                     ),
+//                     Row(
+//                       children: [
+//                         CircleAvatar(
+//                           backgroundColor: Colors.green,
+//                           radius: 5,
+//                         ),
+//                         SizedBox(
+//                           width: 5,
+//                         ),
+//                         Text("Successful")
+//                       ],
+//                     )
+//                   ],
+//                 ),
+//               ],
+//             ),
+//             SizedBox(
+//               height: 2,
+//             ),
+//             Padding(
+//               padding: const EdgeInsets.only(left: 18),
+//               child: Text(
+//                 "₹$amount depostied to 588602000000138",
+//                 style: TextStyle(fontSize: 10, color: Colors.grey[800]),
+//               ),
+//             )
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+// class ListViewCustom extends StatelessWidget {
+//   String orderid;
+//   String time;
+//   String amount;
+//   String imagelink;
+//   ListViewCustom(
+//       {Key? key,
+//       required this.imagelink,
+//       required this.orderid,
+//       required this.amount,
+//       required this.time})
+//       : super(key: key);
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return SizedBox(
+//       width: MediaQuery.of(context).size.width,
+//       height: 90,
+//       child: DecoratedBox(
+//         decoration: BoxDecoration(
+//             border: Border(bottom: BorderSide(width: .5, color: Colors.grey))),
+//         child: Column(
+//           crossAxisAlignment: CrossAxisAlignment.start,
+//           children: [
+//             Row(
+//               crossAxisAlignment: CrossAxisAlignment.start,
+//               children: [
+//                 Padding(
+//                   padding: const EdgeInsets.fromLTRB(0, 8, 0, 0),
+//                   child: Card(
+//                     child: ClipRRect(
+//                       borderRadius: BorderRadius.circular(5),
+//                       child: Image.network(
+//                         '$imagelink',
+//                         width: 50,
+//                         height: 48,
+//                         fit: BoxFit.fill,
+//                       ),
+//                     ),
+//                   ),
+//                 ),
+//                 SizedBox(
+//                   width: 69,
+//                 ),
+//                 Column(
+//                   crossAxisAlignment: CrossAxisAlignment.start,
+//                   children: [
+//                     SizedBox(
+//                       height: 14,
+//                     ),
+//                     Text(
+//                       "Order #$orderid",
+//                       style:
+//                           TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+//                     ),
+//                     SizedBox(
+//                       height: 4,
+//                     ),
+//                     Text(
+//                       time,
+//                       style: TextStyle(color: Colors.grey[600]),
+//                     )
+//                   ],
+//                 ),
+//                 SizedBox(
+//                   width: 76,
+//                 ),
+//                 Column(
+//                   crossAxisAlignment: CrossAxisAlignment.end,
+//                   children: [
+//                     SizedBox(
+//                       height: 12,
+//                     ),
+//                     Text(
+//                       "₹$amount",
+//                       style: TextStyle(
+//                           color: Colors.blue,
+//                           fontWeight: FontWeight.w600,
+//                           fontSize: 16),
+//                     ),
+//                     SizedBox(
+//                       height: 3,
+//                     ),
+//                     Row(
+//                       children: [
+//                         CircleAvatar(
+//                           backgroundColor: Colors.green,
+//                           radius: 7,
+//                         ),
+//                         SizedBox(
+//                           width: 5,
+//                         ),
+//                         Text("Successful")
+//                       ],
+//                     )
+//                   ],
+//                 ),
+//               ],
+//             ),
+//             SizedBox(
+//               height: 2,
+//             ),
+//             Text(
+//               "₹$amount depostied to 64575687636564",
+//               style: TextStyle(fontSize: 12, color: Colors.grey[800]),
+//             )
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
